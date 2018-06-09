@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap-theme.min.css}" />
+	<link rel="stylesheet" th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.css}" />
+	
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<div class= "container">
+		<div class="col-md-4 col-md-offset-4 thumbnail" style="margin-top:80px; padding: 40px;">
+			<h1 class="h3">Cadastrar novo Usuario</h1>
+			<form id="userForm" th:action="@{/user/registration}" th:object="${userForm}" action="#" method="post">
+				<label form="">Username</label>
+				<input class="form-control" type="text" th:field="*{username}"/><span  th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Nome Error</span><br/>
+				<label form="">Senha</label>
+				<input class="form-control" type="password" th:field="*{password}"/><span  th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Nome Error</span><br/>
+				<input type="submit" name="login" value="login" class="btn btn-success btn-block" />
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>
